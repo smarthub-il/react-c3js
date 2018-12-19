@@ -1,6 +1,6 @@
 // patch makes load after unload chart done
-"use strict";
-Object.defineProperty(exports, "__esModule", {
+'use strict';
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
@@ -24,7 +24,7 @@ var _createClass = (function() {
       var descriptor = props[i];
       descriptor.enumerable = descriptor.enumerable || false;
       descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
+      if ('value' in descriptor) descriptor.writable = true;
       Object.defineProperty(target, descriptor.key, descriptor);
     }
   }
@@ -35,15 +35,15 @@ var _createClass = (function() {
   };
 })();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = require("prop-types");
+var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = require("react-dom");
+var _reactDom = require('react-dom');
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -51,7 +51,7 @@ function _interopRequireDefault(obj) {
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
+    throw new TypeError('Cannot call a class as a function');
   }
 }
 
@@ -61,15 +61,15 @@ function _possibleConstructorReturn(self, call) {
       "this hasn't been initialised - super() hasn't been called"
     );
   }
-  return call && (typeof call === "object" || typeof call === "function")
+  return call && (typeof call === 'object' || typeof call === 'function')
     ? call
     : self;
 }
 
 function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
+  if (typeof superClass !== 'function' && superClass !== null) {
     throw new TypeError(
-      "Super expression must either be null or a function, not " +
+      'Super expression must either be null or a function, not ' +
         typeof superClass
     );
   }
@@ -108,55 +108,55 @@ var C3Chart = (function(_React$Component) {
     C3Chart,
     [
       {
-        key: "componentDidMount",
+        key: 'componentDidMount',
         value: function componentDidMount() {
-          c3 = require("c3");
+          c3 = require('c3');
           this.updateChart(this.props);
         }
       },
       {
-        key: "componentWillReceiveProps",
+        key: 'componentWillReceiveProps',
         value: function componentWillReceiveProps(newProps) {
           this.updateChart(newProps);
         }
       },
       {
-        key: "componentWillUnmount",
+        key: 'componentWillUnmount',
         value: function componentWillUnmount() {
           this.destroyChart();
         }
       },
       {
-        key: "destroyChart",
+        key: 'destroyChart',
         value: function destroyChart() {
           try {
             this.chart = this.chart.destroy();
           } catch (err) {
-            throw new Error("Internal C3 error", err);
+            throw new Error('Internal C3 error', err);
           }
         }
       },
       {
-        key: "generateChart",
+        key: 'generateChart',
         value: function generateChart(mountNode, config) {
           var newConfig = _extends({ bindto: mountNode }, config);
           return c3.generate(newConfig);
         }
       },
       {
-        key: "loadNewData",
+        key: 'loadNewData',
         value: function loadNewData(data) {
           this.chart.load(data);
         }
       },
       {
-        key: "unloadData",
+        key: 'unloadData',
         value: function unloadData(done) {
           this.chart.unload(done);
         }
       },
       {
-        key: "updateChart",
+        key: 'updateChart',
         value: function updateChart(config) {
           if (!this.chart) {
             this.chart = this.generateChart(
@@ -167,7 +167,7 @@ var C3Chart = (function(_React$Component) {
 
           if (config.unloadBeforeLoad) {
             this.unloadData({
-              done: () => {
+              done: function() {
                 this.loadNewData(config.data);
               }
             });
@@ -177,13 +177,13 @@ var C3Chart = (function(_React$Component) {
         }
       },
       {
-        key: "render",
+        key: 'render',
         value: function render() {
           var className = this.props.className
-            ? " " + this.props.className
-            : "";
+            ? ' ' + this.props.className
+            : '';
           var style = this.props.style ? this.props.style : {};
-          return _react2.default.createElement("div", {
+          return _react2.default.createElement('div', {
             className: className,
             style: style
           });
@@ -192,13 +192,13 @@ var C3Chart = (function(_React$Component) {
     ],
     [
       {
-        key: "displayName",
+        key: 'displayName',
         get: function get() {
-          return "C3Chart";
+          return 'C3Chart';
         }
       },
       {
-        key: "propTypes",
+        key: 'propTypes',
         get: function get() {
           return {
             data: _propTypes2.default.object.isRequired,
