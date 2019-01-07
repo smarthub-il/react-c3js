@@ -57,21 +57,14 @@ function _classCallCheck(instance, Constructor) {
 
 function _possibleConstructorReturn(self, call) {
   if (!self) {
-    throw new ReferenceError(
-      "this hasn't been initialised - super() hasn't been called"
-    );
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
   }
-  return call && (typeof call === 'object' || typeof call === 'function')
-    ? call
-    : self;
+  return call && (typeof call === 'object' || typeof call === 'function') ? call : self;
 }
 
 function _inherits(subClass, superClass) {
   if (typeof superClass !== 'function' && superClass !== null) {
-    throw new TypeError(
-      'Super expression must either be null or a function, not ' +
-        typeof superClass
-    );
+    throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
   }
   subClass.prototype = Object.create(superClass && superClass.prototype, {
     constructor: {
@@ -81,10 +74,7 @@ function _inherits(subClass, superClass) {
       configurable: true
     }
   });
-  if (superClass)
-    Object.setPrototypeOf
-      ? Object.setPrototypeOf(subClass, superClass)
-      : (subClass.__proto__ = superClass);
+  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : (subClass.__proto__ = superClass);
 }
 
 var c3 = void 0;
@@ -95,13 +85,7 @@ var C3Chart = (function(_React$Component) {
   function C3Chart() {
     _classCallCheck(this, C3Chart);
 
-    return _possibleConstructorReturn(
-      this,
-      (C3Chart.__proto__ || Object.getPrototypeOf(C3Chart)).apply(
-        this,
-        arguments
-      )
-    );
+    return _possibleConstructorReturn(this, (C3Chart.__proto__ || Object.getPrototypeOf(C3Chart)).apply(this, arguments));
   }
 
   _createClass(
@@ -159,17 +143,14 @@ var C3Chart = (function(_React$Component) {
         key: 'updateChart',
         value: function updateChart(config) {
           if (!this.chart) {
-            this.chart = this.generateChart(
-              (0, _reactDom.findDOMNode)(this),
-              config
-            );
+            this.chart = this.generateChart((0, _reactDom.findDOMNode)(this), config);
           }
 
           if (config.unloadBeforeLoad) {
             this.unloadData({
               done: function() {
                 this.loadNewData(config.data);
-              }
+              }.bind(this)
             });
           } else {
             this.loadNewData(config.data);
@@ -179,9 +160,7 @@ var C3Chart = (function(_React$Component) {
       {
         key: 'render',
         value: function render() {
-          var className = this.props.className
-            ? ' ' + this.props.className
-            : '';
+          var className = this.props.className ? ' ' + this.props.className : '';
           var style = this.props.style ? this.props.style : {};
           return _react2.default.createElement('div', {
             className: className,
